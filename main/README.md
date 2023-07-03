@@ -15,10 +15,7 @@ The repository supports experiments on the following datasets:
 1. **FEMNIST** (Federated Extended MNIST) from LEAF benchmark [1]
    - Task: image classification on 62 classes
    - 3,500 users
-   - Instructions for download and preprocessing in ```data/femnist/``` 
-2. Reduced **Federated IDDA** from FedDrive [2]
-   - Task: semantic segmentation for autonomous driving
-   - 24 users
+   - Instructions for download and preprocessing in ```data/femnist/```
 
 ## How to run
 The ```main.py``` orchestrates training. All arguments need to be specified through the ```args``` parameter (options can be found in ```utils/args.py```).
@@ -30,6 +27,4 @@ python load_main.py --dataset femnist --niid --model cnn --num_rounds 200 --num_
 ```
 
 ## References
-[1] Caldas, Sebastian, et al. "Leaf: A benchmark for federated settings." Workshop on Federated Learning for Data Privacy and Confidentiality (2019). 
-
-[2] Fantauzzo, Lidia, et al. "FedDrive: generalizing federated learning to semantic segmentation in autonomous driving." 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2022.
+[1] Caldas, Sebastian, et al. "Leaf: A benchmark for federated settings." Workshop on Federated Learning for Data Privacy and Confidentiality (2019).
