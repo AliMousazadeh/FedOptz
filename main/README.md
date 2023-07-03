@@ -26,11 +26,7 @@ Example of FedAvg experiment (**NB** training hyperparameters need to explicitly
 
 - **FEMNIST** (Image Classification)
 ```bash
-python main.py --dataset femnist --model resnet18 --num_rounds 1000 --num_epochs 5 --clients_per_round 10 
-```
-- **IDDA** (Semantic Segmentation)
-```bash
-python main.py --dataset idda --model deeplabv3_mobilenetv2 --num_rounds 200 --num_epochs 2 --clients_per_round 8 
+python load_main.py --dataset femnist --niid --model cnn --num_rounds 200 --num_epochs 1 --clients_per_round 5 --bs 4 --lr 0.001 --test_interval 10 --data_portion 25 --method fedoptz --alpha 0.2
 ```
 
 ## References
