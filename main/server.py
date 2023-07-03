@@ -92,6 +92,20 @@ class Server:
         return np.random.choice(self.train_clients, num_clients, replace=False)
 
 
+    def select_clients_pow(self):
+        num_clients = min(self.d, len(self.train_clients))
+        clients = np.random.choice(self.train_clients, size=num_clients, replace=False, p=self.probs)
+
+        losses = np.zeros(self.d)
+        for i in range(len(clients)):
+            losses[i] = clients[i].calculate_loss(self.global_model)
+
+        indices = np.argpartition(losses, -self.args.clients_per_round)[-self.args.clients_per_round:]
+        sorted_indices = indices[np.argsort(-losses[indices])]
+
+        return clients[sorted_indices]
+
+
     def train_round(self, clients, r):
         """
             This method trains the model with the dataset of the clients. It handles the training at single round level
